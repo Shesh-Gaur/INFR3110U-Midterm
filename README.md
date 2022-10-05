@@ -4,6 +4,7 @@ Even - Programmer
 
 Notes:
 Any new files I added/created for this midterm are included in the "MidtermStuff" folder in Unity.
+The Executable is located in the "Executables/Midterm Executable" folder.
 
 For Q3, I made MusicManager with an audio source, and added to the Coin script to call the MusicManager's functions. The coins / fairy are the brown spheres in the level.
 
