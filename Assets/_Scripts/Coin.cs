@@ -8,6 +8,7 @@ public class Coin : MonoBehaviour
     {
         if (other.collider.tag == "Player")
         {
+            MusicManager.instance.ActivateFairy(); //MIDTERM ADDITION: Making coin act as fairy. It call the music manager function.
             ScoreManager.instance.ChangeScore(1);
             Destroy(gameObject);
         }
