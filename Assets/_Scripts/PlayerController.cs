@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
 {
     //MIDTERM ADDITIONS
     Subject subject = new Subject();
-
+    public GameObject uiText;
     //Player Movement
     public PlayerAction inputAction;
     Vector2 move;
@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour
         startingPos = transform.position;
 
         //MIDTERM ADDITIONS
-        DebugChecker checker = new DebugChecker(this.gameObject);
+        DebugChecker checker = new DebugChecker(this.gameObject, uiText);
         subject.AddObserver(checker);
     }
 

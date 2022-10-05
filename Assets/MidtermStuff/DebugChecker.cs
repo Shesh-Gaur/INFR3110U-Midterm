@@ -5,15 +5,23 @@ using UnityEngine;
 public class DebugChecker : Observer
 {
     GameObject myGameObject;
-
-    public DebugChecker(GameObject gameObject)
+    GameObject myUiText; //For demo purposes
+    public DebugChecker(GameObject gameObject, GameObject uiText)
     {
         myGameObject = gameObject;
+        myUiText = uiText;
     }
     public override void OnNotify()
     {
-       if (CheckForOutOfBounds())
-        Debug.Log("[DEBUG_CHECKER]: Player is out of bounds!!");
+        if (CheckForOutOfBounds())
+        {
+            Debug.Log("[DEBUG_CHECKER]: Player is out of bounds!!");
+            myUiText.SetActive(true);
+        }
+        else
+        {
+            myUiText.SetActive(false);
+        }
     }
 
     bool CheckForOutOfBounds()
