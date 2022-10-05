@@ -7,6 +7,9 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    //MIDTERM ADDITIONS
+    Subject subject = new Subject();
+
     //Player Movement
     public PlayerAction inputAction;
     Vector2 move;
@@ -53,13 +56,15 @@ public class PlayerController : MonoBehaviour
         inputAction.Player.Jump.performed += cntxt => Jump();
         inputAction.Player.Shoot.performed += cntxt => Shoot();
 
-
-
         rb = GetComponent<Rigidbody>();
         playerAnimator = GetComponent<Animator>();
         distanceToGround = GetComponent<Collider>().bounds.extents.y;
 
         startingPos = transform.position;
+
+        //MIDTERM ADDITIONS
+        DebugChecker checker = new DebugChecker(this.gameObject);
+        subject.AddObserver(checker);
     }
 
     private void Jump()
@@ -108,5 +113,8 @@ public class PlayerController : MonoBehaviour
         transform.Rotate(Vector3.up, lookRotate * lookSpeed * Time.deltaTime);
 
         isGrounded = Physics.Raycast(transform.position, -Vector3.up, distanceToGround);
+
+        //MIDTERM ADDITION
+        subject.Notify();
     }
 }
